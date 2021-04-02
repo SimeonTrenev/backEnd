@@ -46,7 +46,7 @@ app.post("/add-offer", (req, res, next) => {
 });
 
 // require("./routes/index")(app);
-const port = 9000;
+const port = 8000;
 
 app.listen(port, () => {
   console.log(`Server is lestening on port ${port} !`);
