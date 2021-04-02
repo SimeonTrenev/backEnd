@@ -53,6 +53,10 @@ app.listen(port, () => {
   console.log(`Server is lestening on port ${port} !`);
 });
 
+app.get('/', (req, res, next) => {
+  res.send('Hello world')
+})
+
 app.get("/offers", (req, res, next) => {
   res.send("Test");
 });
