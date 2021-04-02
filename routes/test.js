@@ -16,6 +16,7 @@ function test(app) {
       });
 
   app.post("https://lc-brokers.herokuapp.com/register", (req, res, next) => {
+    req.send(req.body)
     userModel.create(req.body, (err, userDetails) => {
       console.log(userDetails);
       res.send(userDetails);
