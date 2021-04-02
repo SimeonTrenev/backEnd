@@ -1,6 +1,9 @@
 const port =process.env.PORT || 8000;
 const express = require("express");
 const mongoose = require("mongoose");
+// const userModel = mongoose.model("User");
+// const Offer = mongoose.model("offers");
+// const constructionTypes = mongoose.model("constructionTypes");
 // const mongoPath = "mongodb://localhost:27017/finalExam";
 const uri = 'mongodb+srv://admin:12345@myfirstcluster.zbh03.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const bodyParser = require("body-parser");
@@ -54,6 +57,14 @@ app.listen(port, () => {
 app.get('/', (req, res, next) => {
   res.send('Hello world')
 })
+
+app.post("/register", (req, res, next) => {
+    
+  
+    console.log(userDetails);
+    res.send(req.body);
+  
+});
 
 app.get("/offers", (req, res, next) => {
   res.send("Test");
