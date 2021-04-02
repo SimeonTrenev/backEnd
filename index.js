@@ -1,3 +1,4 @@
+const port =process.env.PORT || 8000;
 const express = require("express");
 const mongoose = require("mongoose");
 const mongoPath = "mongodb://localhost:27017/finalExam";
@@ -46,7 +47,7 @@ app.post("/add-offer", (req, res, next) => {
 });
 
 // require("./routes/index")(app);
-const port = 8000;
+
 
 app.listen(port, () => {
   console.log(`Server is lestening on port ${port} !`);
