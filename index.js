@@ -1,7 +1,7 @@
 const port =process.env.PORT || 8000;
 const express = require("express");
 const mongoose = require("mongoose");
-const mongoPath = "mongodb://localhost:27017/finalExam";
+// const mongoPath = "mongodb://localhost:27017/finalExam";
 const uri = 'mongodb+srv://admin:12345@myfirstcluster.zbh03.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const bodyParser = require("body-parser");
 const cors = require("cors");

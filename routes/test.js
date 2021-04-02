@@ -8,22 +8,22 @@ const {  COOKIE_NAME } = require("../config");
 const authService = require("../authService");
 
 function test(app) {
-    app.post("https://lc-brokers.herokuapp.com/add-types", (req, res, next) => {
+    app.post("/add-types", (req, res, next) => {
         constructionTypes.create(req.body, (err, types) => {
           console.log(types);
           res.send(types);
         });
       });
 
-  app.post("https://lc-brokers.herokuapp.com/register", (req, res, next) => {
-    req.send(req.body)
+  app.post("/register", (req, res, next) => {
+    
     userModel.create(req.body, (err, userDetails) => {
       console.log(userDetails);
       res.send(userDetails);
     });
   });
 
-  app.post("https://lc-brokers.herokuapp.com/login", (req, res, next) => {
+  app.post("/login", (req, res, next) => {
     const { email, password } = req.body;
     authService
       .login(email, password)
@@ -45,7 +45,7 @@ function test(app) {
       });
   });
 
-  app.post("https://lc-brokers.herokuapp.com/add-offer", (req, res, next) => {
+  app.post("/add-offer", (req, res, next) => {
     console.log(req.body);
     // res.send(req.body);
     Offer.create(req.body, (err, newOffer) => {
@@ -57,7 +57,7 @@ function test(app) {
 
 
 
-  app.post('https://lc-brokers.herokuapp.com/delete', (req, res, next) => {
+  app.post('/delete', (req, res, next) => {
       let data = req.body
       console.log(data)
     return  Offer.deleteOne({_id: data._id})
@@ -65,19 +65,19 @@ function test(app) {
         
   })
 
-  app.post('https://lc-brokers.herokuapp.com/edit-offer', (req, res, next) => {
+  app.post('/edit-offer', (req, res, next) => {
       let data = req.body;
 
       return Offer.updateOne({_id: data._id}, data)
                 .then(response => res.send(response))
   })
 
-  app.get('https://lc-brokers.herokuapp.com/clearCookie', (req, res, next) => {
+  app.get('/clearCookie', (req, res, next) => {
       res.clearCookie(COOKIE_NAME)
       next();
   })
 
-  app.get('https://lc-brokers.herokuapp.com/allOffers', (req, res, next) => {
+  app.get('/allOffers', (req, res, next) => {
   return Offer.find({})
             .then(response => res.send(response))
             
