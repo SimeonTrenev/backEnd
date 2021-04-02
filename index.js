@@ -2,6 +2,8 @@ const port =process.env.PORT || 8000;
 const express = require("express");
 const mongoose = require("mongoose");
 const mongoPath = "mongodb://localhost:27017/finalExam";
+const mongoose = require('mongoose')
+const uri = 'mongodb+srv://admin:admin@myfirstcluster.zbh03.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const bodyParser = require("body-parser");
 const cors = require("cors");
 require("./models/Offers");
@@ -66,6 +68,8 @@ const dbConnectionOptions = {
   useUnifiedTopology: true,
   useCreateIndex: true,
 };
-mongoose.connect(mongoPath, dbConnectionOptions, () => {
+
+
+mongoose.connect(ur, dbConnectionOptions, () => {
   console.log("connected");
 });
