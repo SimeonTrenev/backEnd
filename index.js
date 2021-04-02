@@ -30,7 +30,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/register')
+app.get('/register', (req, res, next) => {
+  res.send('Hello register!')
+})
 
 app.use((req, res, next) => {
   console.log(req.path);
