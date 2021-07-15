@@ -23,6 +23,9 @@ function test(app) {
   app.post("/register", (req, res, next) => {
     userModel.create(req.body, (err, userDetails) => {
       console.log(userDetails);
+      if(err){
+        res.send({err, message: "Invalid register!"})
+      }
       res.send(userDetails);
     });
   });
