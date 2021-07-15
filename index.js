@@ -1,11 +1,7 @@
-const port =process.env.PORT || 8000;
+
 const express = require("express");
 const mongoose = require("mongoose");
-// const userModel = mongoose.model("User");
-// const Offer = mongoose.model("offers");
-// const constructionTypes = mongoose.model("constructionTypes");
-// const mongoPath = "mongodb://localhost:27017/finalExam";
-const uri = 'mongodb+srv://admin:12345@myfirstcluster.zbh03.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const mongoPath ="mongodb+srv://admin:<password>@myfirstcluster.zbh03.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const bodyParser = require("body-parser");
 const cors = require("cors");
 require("./models/Offers");
@@ -33,37 +29,28 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/register', (req, res, next) => {
-  res.send('Hello register!')
-})
-
 app.use((req, res, next) => {
   console.log(req.path);
   next();
 });
 
+require("./routes/test")(app);
+
+app.post("/register", (req, res, next) => {
+  console.log("asd");
+  res.send("testa");
+});
+app.post("/add-offer", (req, res, next) => {
+  console.log(req.body);
+  // res.send(req.body);
+  res.send(req.body);
+});
 
 
-
-
-
-// require("./routes/index")(app);
-
+const port = 9000;
 
 app.listen(port, () => {
   console.log(`Server is lestening on port ${port} !`);
-});
-
-app.get('/', (req, res, next) => {
-  res.send('Hello world')
-})
-
-app.post("/register", (req, res, next) => {
-    
-  
-    console.log(userDetails);
-    res.send(req.body);
-  
 });
 
 app.get("/offers", (req, res, next) => {
@@ -75,8 +62,6 @@ const dbConnectionOptions = {
   useUnifiedTopology: true,
   useCreateIndex: true,
 };
-
-
-mongoose.connect(uri, dbConnectionOptions, () => {
+mongoose.connect(mongoPath, dbConnectionOptions, () => {
   console.log("connected");
 });
