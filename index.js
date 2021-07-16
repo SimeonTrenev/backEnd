@@ -46,7 +46,7 @@ app.post("/add-offer", (req, res, next) => {
   res.send(req.body);
 });
 
-const port = 9000;
+const port = process.env.PORT || 9000;
 
 app.listen(port, () => {
   console.log(`Server is lestening on port ${port} !`);
