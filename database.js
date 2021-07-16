@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const dbUrl = 'mongodb://localhost:27017/finalExam'
+const dbUrl = 'mongodb+srv://admin:12345@myfirstcluster.zbh03.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 const dbConnectionString = dbUrl
 
 mongoose.Promise = global.Promise;
