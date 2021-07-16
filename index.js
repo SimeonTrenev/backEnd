@@ -1,7 +1,7 @@
 
 const express = require("express");
 const mongoose = require("mongoose");
-const mongoPath ="mongodb+srv://admin:<password>@myfirstcluster.zbh03.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const mongoPath ="mongodb+srv://admin:12345@myfirstcluster.zbh03.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const bodyParser = require("body-parser");
 const cors = require("cors");
 require("./models/Offers");
@@ -19,6 +19,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(auth)
+
+
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
