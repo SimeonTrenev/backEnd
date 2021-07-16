@@ -3,7 +3,7 @@ const Offer = mongoose.model("offers");
 const constructionTypes = mongoose.model("constructionTypes");
 const userModel = mongoose.model("User");
 const {  COOKIE_NAME } = require("../config");
-// const bcrypt = require("bcrypt");
+
 // const jwt = require("jsonwebtoken");
 const authService = require("../authService");
 

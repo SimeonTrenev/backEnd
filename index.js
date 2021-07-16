@@ -35,12 +35,12 @@ app.use((req, res, next) => {
   next();
 });
 
-// require("./routes/test")(app);
+require("./routes/test")(app);
 
-// app.post("/register", (req, res, next) => {
-//   console.log("asd");
-//   res.send("testa");
-// });
+app.post("/register", (req, res, next) => {
+  console.log("asd");
+  res.send("testa");
+});
 app.post("/add-offer", (req, res, next) => {
   console.log(req.body);
   // res.send(req.body);
