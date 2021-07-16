@@ -4,9 +4,9 @@ const mongoPath =
   "mongodb+srv://admin:12345@myfirstcluster.zbh03.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const bodyParser = require("body-parser");
 const cors = require("cors");
-// require("./models/Offers");
-// require("./models/ConstructionTypes");
-// require("./models/User");
+require("./models/Offers");
+require("./models/ConstructionTypes");
+require("./models/User");
 
 const cookieParser = require("cookie-parser");
 const auth = require("./auth");
