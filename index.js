@@ -1,7 +1,7 @@
-
 const express = require("express");
 const mongoose = require("mongoose");
-const mongoPath ="mongodb+srv://admin:12345@myfirstcluster.zbh03.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const mongoPath =
+  "mongodb+srv://admin:12345@myfirstcluster.zbh03.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const bodyParser = require("body-parser");
 const cors = require("cors");
 require("./models/Offers");
@@ -18,9 +18,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(auth)
-
-
+app.use(auth);
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -48,11 +46,14 @@ app.post("/add-offer", (req, res, next) => {
   res.send(req.body);
 });
 
-
 const port = 9000;
 
 app.listen(port, () => {
   console.log(`Server is lestening on port ${port} !`);
+});
+
+app.get("/", (req, res, next) => {
+  res.send("asdasdasd as das");
 });
 
 app.get("/offers", (req, res, next) => {
